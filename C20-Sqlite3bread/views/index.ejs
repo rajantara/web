@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>WEBSITE INI</title>
+</head>
+
+<body>
+    <h1 class="container">Filter</h1>
+    <div class="container">
+        <form action="/" method="get">
+            <div class="form-group row">
+                <label for="id" class="col-sm-2 col-form-label">
+                    <input class="form-check-input" type="checkbox" name="check_id"
+                        <%= query.check_id ? ' checked ' : '' %>>ID</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" placeholder="ID" id="id" name="id"
+                        value="<%= query.id %>">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="string" class="col-sm-2 col-form-label">
+                    <input class="form-check-input" type="checkbox" name="check_string"
+                        <%= query.check_string ? ' checked ' : '' %>>String</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="String" id="string" name="string"
+                        value="<%= query.string %>">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="integer" class="col-sm-2 col-form-label">
+                    <input class="form-check-input" type="checkbox" name="check_integer"
+                        <%= query.check_integer ? ' checked ' : '' %>> Integer</label>
+                <div class="col-sm-10">
+                    <input type="number" id="integer" class="form-control" placeholder="Integer" name="integer"
+                        value="<%= query.integer %>">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="float" class="col-sm-2 col-form-label">
+                    <input class="form-check-input" type="checkbox" name="check_float"
+                        <%= query.check_float ? ' checked ' : '' %>> Float</label>
+                <div class="col-sm-10">
+                    <input type="text" id="float" class="form-control" placeholder="Float" name="float"
+                        value="<%= query.float %>">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="startDate" class="col-sm-2 col-form-label">
+                    <input class="form-check-input" type="checkbox" name="check_date"
+                        <%= query.check_date ? ' checked ' : '' %>> Date</label>
+                <div class="col-9">
+                    <input type="date" class="form-control col-sm-4" value="startDate" id="startDate" name="startDate"
+                        value="<%= query.startDate %>">
+                    <div class="col-2">to</div>
+                    <input type="date" class="form-control col-sm-4" value="endDate" id="endDate" name="endDate"
+                        value="<%= query.endDate %>">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="boolean" class="col-sm-2 col-form-label">
+                    <input class="form-check-input" type="checkbox" name="check_boolean"
+                        <%= query.check_boolean ? ' checked' : '' %>> Boolean
+                </label>
+
+                <div class="col-10">
+                    <select class="custom-select my-1 mr-sm-2" id="boolean" name="boolean">
+                        <option disabled selected>Choose the boolean</option>
+                        <option value="true" <%= query.boolean === 'true' ? ' selected' : ''; %>> true
+                        </option>
+                        <option value="false" <%= query.boolean === 'false' ? ' selected' : ''; %>> false
+                        </option>
+                    </select>
+                </div><br><br><br><br><br>
+                <div class="container">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div><br>
+            </div>
+        </form><br>
+
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">String</th>
+                        <th scope="col">Integer</th>
+                        <th scope="col">Float</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Boolean</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%  data.forEach((item, index) => { %>
+                    <tr>
+                        <td><%= item.id %></td>
+                        <td><%= item.string %></td>
+                        <td><%= item.integer %></td>
+                        <td><%= item.float %></td>
+                        <td><%= item.date %></td>
+                        <td><%= item.boolean %></td>
+                        <td>
+                            <a href="/edit/<%= item.id %>"><button type="submit"
+                                    class="btn btn-success">Edit</button></a>
+                            <a href="/delete/<%= item.id %>"><button type="submit"
+                                    class="btn btn-danger">Delete</button></a>
+                        </td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container">
+            <a href="/add" class="btn btn-outline-primary">Add Data</a>
+        </div><br />
+
+        <nav aria-label="navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item <%= page == 1 ? 'disabled' : ''; %>">
+                    <a class="page-link" href="/?page=<%= parseInt(page) - 1 %>">Previous</a>
+                </li>
+                <% for (let i = 1; i <= pages; i++) { %>
+                <li class="page-item <%= page == i ? 'active' : ''; %>"></li>
+                    <a class="page-link" href="/?page=<%= i %>"><%= i %></a></li>
+                <%};%>
+                
+                <li class="page-item <%= page == pages ? 'disabled' : ''; %>">
+                    <a class="page-link" href="/?page=<%= parseInt(page) + 1 %>">Next</a>
+                </li>
+            </ul>
+        </nav>
+        <br>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

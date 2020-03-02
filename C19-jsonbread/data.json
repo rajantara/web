@@ -1,0 +1,30 @@
+[
+   {
+      "string": "Testing data",
+      "integer": "21",
+      "float": "dimana",
+      "date": "2020-03-02",
+      "boolean": "true"
+   },
+   {
+      "string": "coba lagi",
+      "integer": "9",
+      "float": "0.89",
+      "date": "2020-03-02",
+      "boolean": "false"
+   },
+   {
+      "string": "apa aja",
+      "integer": "90",
+      "float": "2.34",
+      "date": "2020-03-02",
+      "boolean": "false"
+   },
+   {
+      "string": "rajan",
+      "integer": "18",
+      "float": "baubau",
+      "date": "2001-04-03",
+      "boolean": "true"
+   }
+]
