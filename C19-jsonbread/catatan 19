@@ -1,0 +1,13 @@
+                                     | start c19|
+
+npm init di terminal
+harus sudah masuk di folder terlebih dahulu
+
+npm instal express di terminal
+npm instal ejs di terminal
+npm instal body-parser terminal
+
+buat folder view terlebih dahulu
+kemudian ubah c19 jadi server js.
+search bootsrapt untuk membuat server js atau  dan copy codingan bosstsatrp ke index js.
+harus buat data json yang kosong
