@@ -12,8 +12,11 @@
 8.instal apk monggo
 9,instal pgadmin
 10.install postman
+11.intall mongodb compass
 
 
 
 
 */
+
+
