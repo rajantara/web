@@ -1,0 +1,44 @@
+<%- include('./partials/header')%>
+
+<head>
+    <div class="container"></div>
+    <h1>Add Data</h1>
+</head>
+
+<div class="container">
+    <form action="add" method="POST">
+        <div class="form-group row">
+            <label for="NO" class="col-sm-2 col-form-label">ID</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="ID" name="string" placeholder="id">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputName" class="col-sm-2 col-form-label">name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="name" placeholder="name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="startdate" class="col-2 col-form-label">date</label>
+            <div class="col-10">
+                <input class="form-control" type="date" name="date">
+            </div>
+            <div class="col-8"></div>
+        </div>
+        <div class="form-group row">
+            <label for="boolean" class="col-2 col-form-label">Absent</label>
+            <div class="col-10">
+                <select id="boolean" class="form-control" name="boolean">
+                    <option disabled selected>Choose the Absent...</option>
+                    <option id="boolean">True</option>
+                    <option id="boolean">False</option>
+                </select>
+            </div>
+            <br />
+        </div> <button type="submit" class="btn btn-primary">Save</button>
+        <a class="btn btn-secondary" href="/" role="button"  on>Beck</a>   
+    </form>
+</div>
+
+<%- include('./partials/footer')%>

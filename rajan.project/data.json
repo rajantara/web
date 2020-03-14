@@ -1,0 +1,17 @@
+[
+   {
+      "name": "rajan",
+      "date": "2001-04-03",
+      "boolean": "True"
+   },
+   {
+      "name": "awan",
+      "date": "2000-09-09",
+      "boolean": "False"
+   },
+   {
+      "name": "zukran",
+      "date": "2009-04-03",
+      "boolean": "False"
+   }
+]
