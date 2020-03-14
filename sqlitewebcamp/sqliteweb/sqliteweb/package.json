@@ -1,0 +1,23 @@
+{
+  "name": "sqliteweb",
+  "version": "1.0.0",
+  "description": "CRUD using sqlite3",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sqlite3",
+    "express",
+    "crud"
+  ],
+  "author": "Rubi Henjaya",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "sqlite3": "^4.1.1"
+  }
+}

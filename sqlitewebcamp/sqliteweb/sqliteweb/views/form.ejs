@@ -1,0 +1,50 @@
+<%- include('partials/header'); %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= title %></h5>
+    <form action="" method="post">
+      <div class="form-group row">
+        <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="nama" name="nama" value="<%= item.nama %>">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="umur" class="col-sm-2 col-form-label">Umur</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="umur" name="umur" value="<%= item.umur %>">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="tinggi" class="col-sm-2 col-form-label">Tinggi</label>
+        <div class="col-sm-10">
+          <input type="number" step="0.01" class="form-control" id="tinggi" name="tinggi" value="<%= item.tinggi %>">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="tanggallahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" id="tanggallahir" name="tanggallahir" value="<%= item.tanggallahir %>">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="ismenikah" class="col-sm-2 col-form-label">Sudah Menikah</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="status" name="ismenikah">
+            <option value="true"<%= item.ismenikah ? ' selected' : '' %>>Laku Bro</option>
+            <option value="false"<%= !item.ismenikah ? ' selected' : '' %>>Jones</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary">Simpan</button>
+          <a href="/" class="btn btn-warning">Batal</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('partials/footer'); %>

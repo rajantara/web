@@ -1,0 +1,56 @@
+<%- include('partials/header'); %>
+
+<h1>Daftar Siswa</h1>
+
+<%- include('search'); %>
+
+<a href="add" class="btn btn-primary">Tambah</a>
+<br><br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nama</th>
+      <th>Umur</th>
+      <th>Tinggi</th>
+      <th>Tanggal Lahir</th>
+      <th>Sudah Menikah?</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% data.forEach(item => { %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= item.nama %></td>
+        <td><%= item.umur %></td>
+        <td><%= item.tinggi %></td>
+        <td><%= moment(item.tanggallahir).format('dddd, DD MMMM YYYY') %></td>
+        <td><%= item.ismenikah ? 'laku bro' : 'Jones' %></td>
+        <td>
+          <a href="/edit/<%= item.id %>" class="btn btn-success">Ubah</a>
+          <a href="/delete/<%= item.id %>" class="btn btn-danger" onclick="return confirm('yakin mau hapus data ini?');">Hapus</a>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item<%= page == 1 ? ' disabled' : '' %>">
+        <a class="page-link" href="<%= url.replace(`page=${page}`, `page=${parseInt(page) - 1 }`) %>" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <% for (let i = 1; i <= pages; i++) { %>
+      <li class="page-item<%= i == page ? ' active' : '' %>"><a class="page-link" href="<%= url.replace(`page=${page}`, `page=${i}`) %>"><%= i %></a></li>
+      <% } %>
+      <li class="page-item<%= page == pages ? ' disabled' : '' %>">
+        <a class="page-link" href="<%= url.replace(`page=${page}`, `page=${parseInt(page) + 1 }`) %>" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <%- include('partials/footer'); %>
